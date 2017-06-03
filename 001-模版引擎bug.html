@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>音乐列表</title>
+    <link rel="stylesheet" href="/site.css">
+    <script type="text/javascript" src='/jquery.min.js'></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>文件名称</th>
+            <th>操作</th>
+        </tr>
+
+<!--Bug区域-->
+
+<!--使用模版引擎的时候，大括号内的变量跟前面的大括号之间不能有空格-->
+        <tbody>
+            {{#each(array) }}
+            <tr>
+                <td>{{xindex + 1}}</td><!--xindex跟{之间不能有空格-->
+                <td>{{this.name}} </td>
+                <td><a href="#" onclick="play('{{ this.name }}')">播放</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+<!--Bug区域-->
+
+    </table>
+
+    <audio id="audioId" src="" autoplay></audio>
+
+    <script>
+        function play(musicName) {
+            var url = '/statics/musics/' + musicName;
+            $("#audioId").attr('src', url);
+        }
+    </script>
+</body>
+
+</html>
