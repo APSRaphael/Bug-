@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>$.getJSON</title>
+</head>
+
+<body>
+  <button>点我看效果</button>
+  <script src="./js/jquery-1.9.1.js"></script>
+  <script>
+  //引号里的内容是不会报错的，而且因为颜色关系很容易出现拼写错误还无法辨别，于是导致了bug
+    $('button').click(function () {
+      // $.getjson()通过获取json文件的方式 获取
+      // 就是确定了dataType的
+      $.getJSON('./4-getJson.json', function (result) {
+        console.log(result);
+      })
+    })
+
+    $('button').click(function () {
+      $.getJSON('./4-getJson.json', function (result) {
+        console.log(result);
+      })
+    })
+
+    $('button').click(function(){
+      $.getJSON('./4-getJson.json', function (result){
+        console.log(result);
+      })
+    })
+
+    $('button').click(function(){
+      $.getJSON('./4-getJson.json',function(result){
+        console.log(result);
+      })
+    })
+  </script>
+</body>
+
+</html>
