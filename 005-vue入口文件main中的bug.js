@@ -39,7 +39,7 @@ const router = new VueRouter({
         {path:'/message',components:message},
         {path:'/shopcart',components:shopcart},
         {path:'/settings',components:settings}//这里应该是component，components是自己文件的路径
-        // {path:'/home',component:home},
+        // {path:'/home',component:home},这些才是对的
         // {path:'/message',component:message},
         // {path:'/shopcart',component:shopcart},
         // {path:'/settings',component:settings},

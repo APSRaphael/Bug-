@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var url = 'http://item.taobao.com/item.htm?a=1&b=2&c=&d=xxx&e';
+
+    //["a=1", "b=2", "c=", "d=xxx", "e"]
+    //{a:'1', b:'2', c:'', d:'xxx', e:undefined}
+    function serilizeUrl(url) {    
+        var result = {};    
+        url = url.split("?")[1];  
+        // url = url.split("?");//["http://item.taobao.com/item.htm", "a=1&b=2&c=&d=xxx&e"]
+        console.log(url)
+        var map = url.split("&");  
+        console.log(map[4]);  
+        for (var i = 0, len = map.length; i < len; i++) {
+            var key = map[i].split('=')[0];
+            var value = map[i].split('=')[1];
+            // result.key = value;  这样写key就是一个对象result的属性，每次循环都会给key重新赋值，最后返回的对象只有key一个属性，且值为undefined
+            result[key] = value; //把key当成变量，遍历的时候相当于result.a = 1添加到result对象里面。每次循环都会添加新的鍵值對
+        }    
+        return result;
+    }
+    console.log(serilizeUrl(url));
+
+    // var object = {};
+    // object.name = 'rap';
+    // object.age = 18;
+    // console.log(object);
+</script>
+
+</html>
